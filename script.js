@@ -5,15 +5,15 @@ let username, interval, counter = 0;
 
 const remove_messages = (resumed = false) => {    
     if(!resumed) {
-        alert('After confirming this window, you\'ll be asked to provide your username, then the operation will begin. \n\n To stop the operation at any time, please type ok in the console window and hit Enter.');
+        alert(`After confirming this window, you'll be asked to provide your username, then the operation will begin. The cleanup process can take time, this depends on the quantity of your messages. \nPlease be patient.
+        \nTo stop the operation at any time, please type ok in the console window and hit Enter.`);
         username = prompt('What is your username?');
     }
+    console.clear(); console.log('Removing messages...');
     
     let scroller = document.querySelector('.messagesWrapper-3lZDfY .scroller-2FKFPG');
     
-    interval = setInterval(function() {
-        console.clear(); 
-        
+    interval = setInterval(function() {        
         let username_container = document.querySelectorAll('.header-23xsNx .username-1A8OIy');
         
         document.querySelectorAll(".message-2qnXI6").forEach(function(value) {
@@ -57,7 +57,8 @@ const remove_messages = (resumed = false) => {
 const stop_it = function() {
     console.clear(); clearInterval(interval);
     
-    alert(`The operation was cancelled!!! \n Total messages removed: ${counter} \n\n To resume the operation again, please type go in the console window and hit Enter.`);
+    alert(`The operation was cancelled!!! \nTotal messages removed: ${counter}
+    \nTo resume the operation again, please type go in the console window and hit Enter.`);
     return;
 }
 Object.defineProperty(window, 'ok', { get: stop_it });
