@@ -55,9 +55,9 @@ const remove_messages = (resumed = false) => {
 }
 
 const stop_it = function() {
-    console.clear(); clearInterval(interval);
+    console.clear(); console.log('Stopped!'); clearInterval(interval);
     
-    alert(`The operation was cancelled!!! \nTotal messages removed: ${counter}
+    alert(`The operation was stopped! \nTotal messages removed: ${counter}
     \nTo resume the operation again, please type go in the console window and hit Enter.`);
     return;
 }
