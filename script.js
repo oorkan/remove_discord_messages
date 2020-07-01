@@ -1,9 +1,11 @@
 // Needs to be refactored
 // For now, just a trash script that works 
 
+let interval;
+
 const remove_messages = (username, more_btn) => {
     let scroller = document.querySelector('.messagesWrapper-3lZDfY .scroller-2FKFPG');
-    let interval = setInterval(function() {
+    interval = setInterval(function() {
         let username_container = document.querySelectorAll('.header-23xsNx .username-1A8OIy');
         
         document.querySelectorAll(".message-2qnXI6").forEach(function(value) {
@@ -43,6 +45,13 @@ const remove_messages = (username, more_btn) => {
         });
     }, 600);
 }
+
+const stop_it = function() {
+    clearInterval(interval);
+    alert('The operation was cancelled!!!');
+    return;
+}
+Object.defineProperty(window, 'ok', { get: stop_it });
 
 remove_messages(
     'Paste your username here',
