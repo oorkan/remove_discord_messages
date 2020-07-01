@@ -3,8 +3,14 @@
 
 let interval;
 
-const remove_messages = (username, more_btn) => {
-    let scroller = document.querySelector('.messagesWrapper-3lZDfY .scroller-2FKFPG');
+const remove_messages = () => {
+    alert(`After confirming this window, you'll be asked to provide your username, then the operation will begin.
+\    
+To stop the operation at any time, please type ok in the console window and hit Enter.`);
+    
+    let scroller = document.querySelector('.messagesWrapper-3lZDfY .scroller-2FKFPG'),
+        username = prompt('What is your username?');
+    
     interval = setInterval(function() {
         let username_container = document.querySelectorAll('.header-23xsNx .username-1A8OIy');
         
@@ -21,10 +27,10 @@ const remove_messages = (username, more_btn) => {
                 if(message_container) {   
                     message_container.click();
                     setTimeout(function() {
-                        let more = message_container.querySelector('.button-1ZiXG9[aria-label='+more_btn+']');
+                        let more_btn = message_container.querySelector('.button-1ZiXG9:last-of-type');
                         
-                        if(more) {
-                            more.click();
+                        if(more_btn) {
+                            more_btn.click();
                             let message_actions_delete = document.querySelector("#message-actions #message-actions-delete");
                             if(message_actions_delete) {
                                 message_actions_delete.click();
@@ -53,7 +59,4 @@ const stop_it = function() {
 }
 Object.defineProperty(window, 'ok', { get: stop_it });
 
-remove_messages(
-    'Paste your username here',
-    'Paste Edit Message -> More button text here in the language you use'
-);
+remove_messages();
