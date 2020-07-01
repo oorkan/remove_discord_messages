@@ -1,7 +1,7 @@
 // Needs to be refactored
 // For now, just a trash script that works 
 
-let interval;
+let interval, counter = 0;
 
 const remove_messages = () => {
     alert(`After confirming this window, you'll be asked to provide your username, then the operation will begin.
@@ -36,7 +36,7 @@ To stop the operation at any time, please type ok in the console window and hit 
                                 message_actions_delete.click();
                                 setTimeout(function() {
                                     let mad_btn = document.querySelector(".modal-3c3bKg .button-38aScr[type=submit]");
-                                    mad_btn.click();
+                                    mad_btn.click(); counter++;
                                 }, 200);            
                             }
                         }
@@ -44,7 +44,7 @@ To stop the operation at any time, please type ok in the console window and hit 
                 }
                 else {
                     setTimeout(function() {
-                            scroller.scroll(0,0);
+                        scroller.scroll(0,0);
                     }, 3000)
                 }
             }
@@ -54,7 +54,7 @@ To stop the operation at any time, please type ok in the console window and hit 
 
 const stop_it = function() {
     clearInterval(interval);
-    alert('The operation was cancelled!!!');
+    alert(`The operation was cancelled!!! \n Total messages removed: ${counter}`);
     return;
 }
 Object.defineProperty(window, 'ok', { get: stop_it });
