@@ -2,8 +2,8 @@
 // For now, just a trash script that works 
 
 const remove_messages = (username, more_btn) => {
-    let scroller = document.querySelector('.messagesWrapper-3lZDfY .scroller-2FKFPG'),
-        interval = setInterval(function() {
+    let scroller = document.querySelector('.messagesWrapper-3lZDfY .scroller-2FKFPG');
+    let interval = setInterval(function() {
         let username_container = document.querySelectorAll('.header-23xsNx .username-1A8OIy');
         
         document.querySelectorAll(".message-2qnXI6").forEach(function(value) {
