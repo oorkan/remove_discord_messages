@@ -36,7 +36,7 @@ const remove_messages = (resumed = false) => {
                 message_actions_delete.click();
                 
                 timeout = setTimeout(function() {
-                    let mad_btn = document.querySelector('.modal-3c3bKg .button-38aScr[type=submit]');
+                    let mad_btn = document.querySelector('.button-38aScr[type=submit]');
                     mad_btn.click();
                     
                     let interval = setInterval(function() {
@@ -45,9 +45,9 @@ const remove_messages = (resumed = false) => {
                             update_counter();
                             return remove_messages(true);
                         }
-                    }, 300);
+                    }, 400);
 
-                }, 100);   
+                }, 200);   
             }
         }
     }
